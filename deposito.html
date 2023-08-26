@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Deposito</title>
+</head>
+<body>
+    <h1>Kalkulator Deposito</h1>
+    <form>
+        <label for="setoran">Jumlah Setoran:</label>
+        <input type="text" id="setoran" name="setoran" onkeyup="formatSetoran(this)" required><br><br>
+        
+        <label for="suku-bunga">Suku Bunga (%):</label>
+        <input type="text" id="suku-bunga" name="suku-bunga" required><br><br>
+        
+        <label for="tenor">Jumlah Tenor (hari):</label>
+        <select id="tenor" name="tenor" required>
+            <option value="30">30 (1 BULAN)</option>
+            <option value="90">90 (3 BULAN)</option>
+            <option value="180">180 (6 BULAN)</option>
+            <option value="365">365 (12 BULAN)</option>
+				<option value="730">730 (24 BULAN)</option>
+				<option value="1095">1095 (36 BULAN)</option>
+        </select><br><br>
+        
+        <label for="pajak">Pajak (%):</label>
+        <input type="text" id="pajak" name="pajak" required><br><br>
+        
+        <button type="button" onclick="hitungDeposito()">Hitung</button><br><br>
+        
+        <label for="keuntungan">Keuntungan Bunga Deposito:</label>
+        <input type="text" id="keuntungan" name="keuntungan" readonly><br><br>
+        
+        <label for="pemotongan-pajak">Pemotongan Pajak:</label>
+        <input type="text" id="pemotongan-pajak" name="pemotongan-pajak" readonly><br><br>
+        
+        <label for="keuntungan-bersih">Keuntungan Bersih:</label>
+        <input type="text" id="keuntungan-bersih" name="keuntungan-bersih" readonly><br><br>
+    </form>
+
+    <script>
+        function hitungDeposito() {
+            var setoran = parseFloat(document.getElementById("setoran").value.replace(/\./g, ""));
+            var sukuBunga = parseFloat(document.getElementById("suku-bunga").value.replace(",", ".")) / 100;
+            var tenor = parseFloat(document.getElementById("tenor").value);
+            var pajak = parseFloat(document.getElementById("pajak").value.replace(",", ".")) / 100;
+            
+            var keuntungan = (setoran * sukuBunga * tenor) / 365;
+            var pemotonganPajak = keuntungan * pajak;
+            var keuntunganBersih = keuntungan - pemotonganPajak;
+            
+            document.getElementById("keuntungan").value = formatNumber(keuntungan.toFixed(2));
+            document.getElementById("pemotongan-pajak").value = formatNumber(pemotonganPajak.toFixed(2));
+            document.getElementById("keuntungan-bersih").value = formatNumber(keuntunganBersih.toFixed(2));
+        }
+        
+        function formatNumber(number) {
+            var parts = number.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return parts.join(",");
+        }
+        
+        function formatSetoran(input) {
+            var value = input.value.replace(/\./g, "");
+            input.value = formatNumber(value);
+        }
+    </script>
+</body>
+</html>
