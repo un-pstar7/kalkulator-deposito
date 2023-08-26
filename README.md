@@ -1,2 +1,2 @@
 # kalkulator-deposito
-preview https://kalkulator-deposito.vercel.app/
+preview https://kalkulator-deposito.afkar.site
