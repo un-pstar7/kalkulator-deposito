@@ -1,81 +1,31 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #FFFFFF;
-    color: #000000;
-    padding: 20px;
-    text-align: left;
+    background-color: black;
+    color: white;
 }
 
 h1 {
-    text-align: center;
-    color: #000000;
+    text-align: left;
+    margin-left: 20px;
 }
 
 form {
-    width: 400px;
-    margin: 0 auto;
+    margin-left: 20px;
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    color: #000000;
+    margin-bottom: 10px;
 }
 
 input[type="text"],
 select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #000000;
-    box-sizing: border-box;
+    width: 200px;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: #000000;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #333333;
+    margin-left: 20px;
 }
 
 input[readonly] {
-    background-color: #EEEEEE;
-}
-
-input#setoran:invalid,
-input#suku-bunga:invalid,
-input#pajak:invalid {
-    border-color: red;
-}
-
-input[type="text"]:focus,
-select:focus {
-    outline: none;
-    border-color: #80BDFF;
-    box-shadow: 0 0 5px #80BDFF;
-}
-
-input[type="text"]:focus::-webkit-outer-spin-button,
-input[type="text"]:focus::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type="text"]:focus[type="number"] {
-    -moz-appearance: textfield;
-}
-
-br {
-    line-height: 20px;
-    height: 20px;
-    clear: both;
+    background-color: #f2f2f2;
 }
